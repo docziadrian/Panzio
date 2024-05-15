@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+p{
+    color: blue;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+hr{
+    margin: 10px 0px;
+}
+
+
+
+.container{
+    width: 680px;
+    margin: auto;
+    text-align: center;
+}
+
+.keret{
+    padding: 5px;
+    margin-top: 5px;
+    width: 680px;
+}
+
+.container h1{
+    color: blue;
+}
+
+.flex{
+    gap: 1px;
+    margin-bottom: 6px;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.flex-rew{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-bottom: 6px;
+    width: 60%;
+    justify-content: space-between;
+    align-self: center;
+    margin-top: 9px;
+}
+
+.flex-input{
+    gap: 10px;
+    margin-bottom: 6px;
+    flex-wrap: nowrap;
+    text-wrap: nowrap;
+    margin-left: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+label{
+    font-size: small;
+}

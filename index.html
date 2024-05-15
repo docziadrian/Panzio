@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Panzió - szobafoglalás</h1>
+        <div class="keret">
+            <hr>
+            <div class="flex">
+                <p>Érkezés dátuma:</p>
+                <input type="date">
+            </div>
+            <div class="flex">
+                <p>Távozás dátuma:</p>
+                <input type="date">
+            </div>
+            <hr>
+            <div class="flex">
+                <p>Szoba típusa:</p>
+                <div class="flex-rew">
+                    <div class="flex-input">
+                        <input id="egyagyas" type="checkbox">
+                        <label for="egyagyas">Egyágyas - 9.000 Ft/éj</label>
+                    </div>
+                    <div class="flex-input">
+                        <input id="ketagyas" type="checkbox">
+                        <label for="ketagyas">Kétágyas - 15.000 Ft/éj</label>
+                    </div>
+                    <div class="flex-input">
+                        <input id="ketagyasEgy" type="checkbox">
+                        <label for="ketagyasEgy">Kétágyas 1 pótággyal - 18.000 Ft/éj</label>
+                    </div>
+                    <div class="flex-input">
+                        <input id="ketagyasKetto" type="checkbox">
+                        <label for="ketagyasKetto">Kétágyas 2 pótággyal - 21.000 Ft/éj</label>
+                    </div>
+                </div>
+                
+            </div>
+            <hr>
+        </div>
+    </div>
+    
+
+    <script src="./index.js"></script>
+</body>
+</html>

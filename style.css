@@ -3,33 +3,79 @@
     padding: 0;
 }
 
+body{
+    background-color: rgba(255,255,240,255);
+}
+
+.keret{
+    background-color: rgba(240,240,240,255);
+}
+
 p{
     color: blue;
     justify-content: center;
     align-items: center;
     display: flex;
+    text-wrap: nowrap;
+    margin: 0 5px;
+}
+
+textarea{
+    width: 100%;
+    margin-left: 20px;
 }
 
 hr{
     margin: 10px 0px;
 }
 
-
-
-.container{
-    width: 680px;
-    margin: auto;
+input{
     text-align: center;
 }
 
+input[type=radio]{
+    margin-left: 40px;
+}
+
+input[type=number]{
+    width: 4em;
+    color: rgb(201, 36, 36);
+    
+}
+
+input[type=date]{
+    color: rgb(201, 36, 36);
+    margin-left: 3em;
+    min-width: 55%;
+    max-width: 55%;
+}
+
+input[type=radio]{
+    accent-color: black;
+}
+input[type=checkbox]{
+    accent-color: white;
+}
+
+.container{
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+    
+}
+
 .keret{
-    padding: 5px;
+    
     margin-top: 5px;
     width: 680px;
+    padding: 0.5em 5em;
+    
 }
 
 .container h1{
     color: blue;
+    font-size: 3em;
+    margin: 0.5em;
 }
 
 .flex{
@@ -40,6 +86,15 @@ hr{
     justify-content: space-between;
 }
 
+.flex-textarea{
+    gap: 1px;
+    margin-bottom: 6px;
+    width: 90%;
+    height: 6em;
+    display: flex;
+    justify-content: space-between;
+    
+}
 
 .flex-rew{
     display: flex;
@@ -57,7 +112,7 @@ hr{
     margin-bottom: 6px;
     flex-wrap: nowrap;
     text-wrap: nowrap;
-    margin-left: 30%;
+    margin-left: 10%;
     width: 100%;
     display: flex;
     justify-content: start;
@@ -65,4 +120,16 @@ hr{
 
 label{
     font-size: small;
+}
+
+button{
+    padding: 4px;
+}
+
+#vendegekSzama{
+    margin-left: 10px;
+}
+
+#m{
+    margin-right: 2.2em;
 }

@@ -25,26 +25,89 @@
                 <p>Szoba típusa:</p>
                 <div class="flex-rew">
                     <div class="flex-input">
-                        <input id="egyagyas" type="checkbox">
+                        <input name="1" id="egyagyas" type="radio">
                         <label for="egyagyas">Egyágyas - 9.000 Ft/éj</label>
                     </div>
                     <div class="flex-input">
-                        <input id="ketagyas" type="checkbox">
+                        <input name="1" checked id="ketagyas" type="radio">
                         <label for="ketagyas">Kétágyas - 15.000 Ft/éj</label>
                     </div>
                     <div class="flex-input">
-                        <input id="ketagyasEgy" type="checkbox">
+                        <input name="1" id="ketagyasEgy" type="radio">
                         <label for="ketagyasEgy">Kétágyas 1 pótággyal - 18.000 Ft/éj</label>
                     </div>
                     <div class="flex-input">
-                        <input id="ketagyasKetto" type="checkbox">
+                        <input name="1" id="ketagyasKetto" type="radio">
                         <label for="ketagyasKetto">Kétágyas 2 pótággyal - 21.000 Ft/éj</label>
                     </div>
                 </div>
-                
+            </div>
+            <hr>
+            <div class="flex" style="justify-content: left;">
+                <p id="m">Vendégek száma:</p>
+                <input value="2" type="number" name="" id="vendegekSzama">
+                <p>fő</p>
+            </div>
+            <div class="flex">
+                <p id="m">Vendégek életkora:</p>
+                <input type="number" name="" id="">
+                <p>év</p>
+                <input type="number" name="" id="">
+                <p>év</p>
+                <input type="number" name="" id="">
+                <p>év</p>
+                <input type="number" name="" id="">
+                <p>év</p>
+            </div>
+            <hr>
+            <div class="flex">
+                <p>Ellátás</p>
+                <div class="flex-rew">
+                    <div class="flex-input">
+                        <input id="egyagyas" type="radio">
+                        <label for="egyagyas">Reggeli - 900 Ft/nap/fő</label>
+                    </div>
+                    <div class="flex-input">
+                        <input checked id="ketagyas" type="radio">
+                        <label for="ketagyas">Félpanzió - 2.900 Ft/nap/fő</label>
+                    </div>
+                    <div class="flex-input">
+                        <input id="ketagyasEgy" type="radio">
+                        <label for="ketagyasEgy">Teljes panzió - 4.900 Ft/nap/fő</label>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <div class="flex">
+                <p>Fürdő szolgáltatások:</p>
+                <div class="flex-rew">
+                    <div class="flex-input">
+                        <input id="egyagyas" type="checkbox">
+                        <label for="egyagyas">Beltéri medencék - 800 Ft/nap/fő</label>
+                    </div>
+                    <div class="flex-input">
+                        <input id="ketagyas" type="checkbox">
+                        <label for="ketagyas">Kültéri medencék - 800 Ft/nap/fő</label>
+                    </div>
+                    <div class="flex-input">
+                        <input id="ketagyasEgy" type="checkbox">
+                        <label for="ketagyasEgy">Szauna belépő - 800 Ft/nap/fő</label>
+                    </div>
+                    <div class="flex-input">
+                        <input checked id="ketagyasEgy" type="checkbox">
+                        <label for="ketagyasEgy">Teljes belépő - 2.000 Ft/nap/fő</label>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="flex-textarea">
+                <p>Egyéb kérdés, kívánság:</p>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
             </div>
             <hr>
         </div>
+        <button id="koltsegKalk">Költségkalkuláció</button>
     </div>
     
 

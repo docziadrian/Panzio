@@ -133,3 +133,8 @@ button{
 #m{
     margin-right: 2.2em;
 }
+
+#hiba{
+    color: red;
+    display: none;
+}

@@ -8,7 +8,23 @@
 </head>
 <body>
     
-    <div class="container">
+    <div class="rendeles" style="position: absolute;">
+        <h1>Sikeres rendelés!</h1>
+        <p>Kedves Vendégünk!</p>
+        <p>Tájékoztatjuk a sikeres foglalásról.</p>
+        <br>
+        <p>Érkezés: </p>
+        <p>Távozás: </p>
+        <p>Szoba típusa: </p>
+        <p>Vendégek száma: fő</p>
+        <p>Ellátás: </p>
+        <p>Igényelt szolgáltatások: </p>
+        <p>A teljes összeg: Ft</p>
+        <br>
+        <p>Köszönjük a megrendelését!</p>
+    </div>
+
+    <div class="container" style="position: relative;">
         <h1>Panzió - szobafoglalás</h1>
         <div class="keret">
             <hr>
@@ -65,16 +81,16 @@
                 <p>Ellátás</p>
                 <div class="flex-rew">
                     <div class="flex-input">
-                        <input id="egyagyas" type="radio">
-                        <label for="egyagyas">Reggeli - 900 Ft/nap/fő</label>
+                        <input name="3" id="reggeli" type="radio">
+                        <label for="reggeli">Reggeli - 900 Ft/nap/fő</label>
                     </div>
                     <div class="flex-input">
-                        <input checked id="ketagyas" type="radio">
-                        <label for="ketagyas">Félpanzió - 2.900 Ft/nap/fő</label>
+                        <input name="3" checked id="felpanzio" type="radio">
+                        <label for="felpanzio">Félpanzió - 2.900 Ft/nap/fő</label>
                     </div>
                     <div class="flex-input">
-                        <input id="ketagyasEgy" type="radio">
-                        <label for="ketagyasEgy">Teljes panzió - 4.900 Ft/nap/fő</label>
+                        <input name="3" id="teljesPanzio" type="radio">
+                        <label for="teljesPanzio">Teljes panzió - 4.900 Ft/nap/fő</label>
                     </div>
                 </div>
             </div>
@@ -84,20 +100,20 @@
                 <p>Fürdő szolgáltatások:</p>
                 <div class="flex-rew">
                     <div class="flex-input">
-                        <input id="egyagyas" type="checkbox">
-                        <label for="egyagyas">Beltéri medencék - 800 Ft/nap/fő</label>
+                        <input name="2" id="belteriMedencek" type="checkbox">
+                        <label for="belteriMedencek">Beltéri medencék - 800 Ft/nap/fő</label>
                     </div>
                     <div class="flex-input">
-                        <input id="ketagyas" type="checkbox">
-                        <label for="ketagyas">Kültéri medencék - 800 Ft/nap/fő</label>
+                        <input name="2" id="kulteriMedencek" type="checkbox">
+                        <label for="kulteriMedencek">Kültéri medencék - 800 Ft/nap/fő</label>
                     </div>
                     <div class="flex-input">
-                        <input id="ketagyasEgy" type="checkbox">
-                        <label for="ketagyasEgy">Szauna belépő - 800 Ft/nap/fő</label>
+                        <input name="2" id="szauna" type="checkbox">
+                        <label for="szauna">Szauna belépő - 800 Ft/nap/fő</label>
                     </div>
                     <div class="flex-input">
-                        <input checked id="ketagyasEgy" type="checkbox">
-                        <label for="ketagyasEgy">Teljes belépő - 2.000 Ft/nap/fő</label>
+                        <input name="2" checked id="teljesBelepo" type="checkbox">
+                        <label for="teljesBelepo">Teljes belépő - 2.000 Ft/nap/fő</label>
                     </div>
                 </div>
             </div>

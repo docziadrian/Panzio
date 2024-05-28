@@ -15,14 +15,48 @@ vendegEletkor1 = vendegEletkor2 = vendegEletkor3 = vendegEletkor4 = 0;
 let koltseg = 0;
 let vendegek = 2;
 
+let erkezes = "";
+let tavozas = "";
+
 let szoba_tipusa = ""
 let ellatas = ""
 furdo_szolgaltatasok = "";
 
-
+let belteri = kulteri = szauna = teljes = false;
 let hiba = false;
 
+
+let napok_szama;
+
+
+
+
+let datumEllenorzes = () => {
+
+    let months = ["Jan", "Feb", "Márc", "Ápr", "Máj", "Jún", "Júl",
+         "Aug", "Szept", "Okt", "Nov", "Dec"];
+        
+    let days = ["vasárnap", "hétfő", "kedd", "szerda", "csütörtök", "péntek", "szombat"];
+
+
+    erkezesD = new Date(document.querySelector("#erkezes").value);
+    tavozasD = new Date(document.querySelector("#tavozas").value);
+
+    napok_szama = tavozasD.getDay() - erkezesD.getDay();
+    
+    
+
+    erkezes = `${erkezesD.getFullYear()}.${months[erkezesD.getMonth()]}.${erkezesD.getDate()} ${days[erkezesD.getDay()]}`
+    tavozas = `${tavozasD.getFullYear()}.${months[tavozasD.getMonth()]}.${tavozasD.getDate()} ${days[tavozasD.getDay()]}`
+
+    
+    
+}
+
 gomb.addEventListener("click", () => {
+
+    datumEllenorzes()
+
     if(egyagyas.checked){
         koltseg += 9000;
         szoba_tipusa = "Egyágyas szoba";
@@ -43,6 +77,8 @@ gomb.addEventListener("click", () => {
         szoba_tipusa = "Kétágyas szoba kettő pótággyal";
     }
 
+    document.querySelector("#szobaVeg").innerHTML = szoba_tipusa;
+
     if(document.querySelector("#reggeli").checked){
         koltseg += 900;
         ellatas = "Reggeli"
@@ -58,29 +94,45 @@ gomb.addEventListener("click", () => {
         ellatas = "Teljes panzió"
     }
 
+    document.querySelector("#ellatasVeg").innerHTML = ellatas;
+
     if(document.querySelector("#belteriMedencek").checked){
         koltseg += 800;
         furdo_szolgaltatasok = "Beltéri medencék"
+        document.querySelector("#igenyeltSzolgVeg").innerHTML += furdo_szolgaltatasok;
     }
 
     if(document.querySelector("#kulteriMedencek").checked){
         koltseg += 800;
         furdo_szolgaltatasok = "Kültéri medencék"
+        document.querySelector("#igenyeltSzolgVeg").innerHTML += furdo_szolgaltatasok;
+        
     }
 
     if(document.querySelector("#szauna").checked){
         koltseg += 800;
         furdo_szolgaltatasok = "Szauna belépő"
+        document.querySelector("#igenyeltSzolgVeg").innerHTML += furdo_szolgaltatasok;
+        
     }
 
     if(document.querySelector("#teljesBelepo").checked){
         koltseg += 800;
         furdo_szolgaltatasok = "Teljes belépő"
+        document.querySelector("#igenyeltSzolgVeg").innerHTML += furdo_szolgaltatasok;
     }
 
-    alert(koltseg)
+    
+
+    eredmenyKiiratas();
     koltseg = 0;
 })
+
+let eredmenyKiiratas = () => {
+    document.querySelector(".rendeles").style.display = "flex";
+    document.querySelector("#erkezesVeg").innerHTML = erkezes;
+    document.querySelector("#tavozasVeg").innerHTML = tavozas;
+}
 
 
 let vendegEletkorAllitas = (input) => {
@@ -266,6 +318,7 @@ let vendekEllenorzes = () => {
 this.addEventListener("input", () => {
     document.querySelector("#hiba").textContent = ""
     vendegek = document.querySelector("#vendegekSzama").value
+    document.querySelector("#vendegekVeg").innerHTML = vendegek;
     ketagyasEgyPotaggyalEllenorzes();
     ketagyasKetPotaggyalEllenorzes();
     vendekEllenorzes();

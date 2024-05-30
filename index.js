@@ -12,7 +12,7 @@ let ketagyasKettoPotaggyal = document.querySelector("#ketagyasKetto");
 let vendegEletkor1, vendegEletkor2, vendegEletkor3, vendegEletkor4;
 vendegEletkor1 = vendegEletkor2 = vendegEletkor3 = vendegEletkor4 = 0;
 
-let koltseg = 0;
+
 let vendegek = 2;
 
 let erkezes = "";
@@ -42,7 +42,8 @@ let datumKorrigalas = () => {
     erkezesD = new Date(document.querySelector("#erkezes").value);
     tavozasD = new Date(document.querySelector("#tavozas").value);
 
-    napok_szama = tavozasD.getDay() - erkezesD.getDay();
+    napok_szama = Math.round((tavozasD - erkezesD) / (1000 * 60 * 60 * 24));
+    alert(napok_szama)
     
     
 
@@ -72,9 +73,10 @@ let datumEllenorzes = () => {
 }
 
 
+let koltseg;
 gomb.addEventListener("click", () => {
     if(datumEllenorzes()){
-        
+        koltseg = 0
     
         vendegek = document.querySelector("#vendegekSzama").value
         document.querySelector("#vendegekVeg").innerHTML = vendegek;
@@ -120,12 +122,15 @@ gomb.addEventListener("click", () => {
 
         document.querySelector("#ellatasVeg").innerHTML = ellatas;
 
+        let szolgaltatasok = []
+
         if(document.querySelector("#belteriMedencek").checked){
             koltseg += ((napok_szama)*800)*vendegek;
             furdo_szolgaltatasok = "Beltéri medencék"
             entry = document.createElement('li');
             entry.appendChild(document.createTextNode(furdo_szolgaltatasok));
             document.querySelector("#igenyeltSzolgVeg").appendChild(entry);
+            szolgaltatasok.push("Beltéri medencék")
         }
 
         if(document.querySelector("#kulteriMedencek").checked){
@@ -134,6 +139,7 @@ gomb.addEventListener("click", () => {
             entry = document.createElement('li');
             entry.appendChild(document.createTextNode(furdo_szolgaltatasok));
             document.querySelector("#igenyeltSzolgVeg").appendChild(entry);
+            szolgaltatasok.push("Kültéri medencék")
             
         }
 
@@ -143,6 +149,7 @@ gomb.addEventListener("click", () => {
             entry = document.createElement('li');
             entry.appendChild(document.createTextNode(furdo_szolgaltatasok));
             document.querySelector("#igenyeltSzolgVeg").appendChild(entry);
+            szolgaltatasok.push("Szauna belépő")
             
         }
 
@@ -152,11 +159,20 @@ gomb.addEventListener("click", () => {
             entry = document.createElement('li');
             entry.appendChild(document.createTextNode(furdo_szolgaltatasok));
             document.querySelector("#igenyeltSzolgVeg").appendChild(entry);
+            szolgaltatasok.push("Teljes belépő")
         }
 
         document.querySelector("#osszegVeg").innerHTML = koltseg;
         
+        if (window.innerWidth < 880) {
+            let alertMessage = `${erkezes}-${tavozas}\n${napok_szama} nap\n${vendegek} főre, \nszoba: ${szoba_tipusa}\n${koltseg} értékben.\nEllátás: ${ellatas}\n`;
+            szolgaltatasok.forEach(service => {
+                alertMessage += `szolgáltatás: ${service} *\nKöszke.`;
+            });
 
+            alert(alertMessage);
+        }
+        
         eredmenyKiiratas();
         koltseg = 0;
     }else{
@@ -234,42 +250,54 @@ let vendekEllenorzes = () => {
         if(egyagyas.checked || ketagyas.checked){
             if(vendegek == 1){
                 //minimum 1 vendég életkora
+                gomb.style.visibility = "visible";
                 if(!vendegEletkor1){
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Kérlek add meg az életkorokat!"
+                    gomb.style.visibility = "hidden";
                 }
                 if(vendegEletkor2 || vendegEletkor3 || vendegEletkor4){
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Túl sok az adat!"
+                    gomb.style.visibility = "hidden";
                 }
             }
             if(vendegek == 2){
                 //minimum 2 vendég életkora
+                gomb.style.visibility = "visible";
                 if(!vendegEletkor1 || !vendegEletkor2){
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Kérlek add meg az életkorokat!"
+                    gomb.style.visibility = "hidden";
                 }
                 if(vendegEletkor3 || vendegEletkor4){
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Túl sok az adat!"
+                    gomb.style.visibility = "hidden";
                 }
+                
             }
             if(vendegek == 3){
                 //minimum 3 vendég életkora
+                gomb.style.visibility = "visible";
                 if(!vendegEletkor1 || !vendegEletkor2 || !vendegEletkor3){
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Kérlek add meg az életkorokat!"
+                    gomb.style.visibility = "hidden";
                 }
                 if(vendegEletkor4){
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Túl sok az adat!"
+                    gomb.style.visibility = "hidden";
                 }
             }
             if(vendegek == 4){
                 //minimum 4 vendég életkora
+                gomb.style.visibility = "visible";
                 if(!vendegEletkor1 || !vendegEletkor2 || !vendegEletkor3 || !vendegEletkor4){
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Kérlek add meg az életkorokat!"
+                    gomb.style.visibility = "hidden";
                 }
             }
         }
@@ -279,36 +307,46 @@ let vendekEllenorzes = () => {
         if(ketagyasEgyPotaggyal.checked){
             if(vendegek == 1){
                 //minimum 1 vendég életkora
+                gomb.style.visibility = "visible";
                 document.querySelector("#hiba").style.display = "block";
                 document.querySelector("#hiba").textContent = "Minimum 2 vendég kötelező!"
+                gomb.style.visibility = "hidden";
             }
             if(vendegek == 2){
                 //minimum 2 vendég életkora
+                gomb.style.visibility = "visible";
                 if(!vendegEletkor1 || !vendegEletkor2){
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Kérlek add meg az életkorokat!"
+                    gomb.style.visibility = "hidden";
                 }
                 if(vendegEletkor3 || vendegEletkor4){
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Túl sok az adat!"
+                    gomb.style.visibility = "hidden";
                 }
             }
             if(vendegek == 3){
                 //minimum 3 vendég életkora
+                gomb.style.visibility = "visible";
                 if(!vendegEletkor1 || !vendegEletkor2 || !vendegEletkor3){
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Kérlek add meg az életkorokat!"
+                    gomb.style.visibility = "hidden";
                 }
                 if(vendegEletkor4){
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Túl sok az adat!"
+                    gomb.style.visibility = "hidden";
                 }
             }
             if(vendegek == 4){
                 //minimum 4 vendég életkora
+                gomb.style.visibility = "visible";
                 if(!vendegEletkor1 || !vendegEletkor2 || !vendegEletkor3 || !vendegEletkor4){
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Kérlek add meg az életkorokat!"
+                    gomb.style.visibility = "hidden";
                 }
             }
         }
@@ -319,25 +357,33 @@ let vendekEllenorzes = () => {
         if(ketagyasKettoPotaggyal.checked){
             if(vendegek == 1 || vendegek == 2){
                 //minimum 1 vendég életkora
+                gomb.style.visibility = "visible";
                 document.querySelector("#hiba").style.display = "block";
                 document.querySelector("#hiba").textContent = "Minimum 3 vendég kötelező!"
+                gomb.style.visibility = "hidden";
             }
             if(vendegek == 3){
                 //minimum 3 vendég életkora
+                gomb.style.visibility = "visible";
                 if(!vendegEletkor1 || !vendegEletkor2 || !vendegEletkor3){
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Kérlek add meg az életkorokat!"
+                    gomb.style.visibility = "hidden";
                 }
                 if(vendegEletkor4){
+                    gomb.style.visibility = "visible";
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Túl sok az adat!"
+                    gomb.style.visibility = "hidden";
                 }
             }
             if(vendegek == 4){
                 //minimum 4 vendég életkora
+                gomb.style.visibility = "visible";
                 if(!vendegEletkor1 || !vendegEletkor2 || !vendegEletkor3 || !vendegEletkor4){
                     document.querySelector("#hiba").style.display = "block";
                     document.querySelector("#hiba").textContent = "Kérlek add meg az életkorokat!"
+                    gomb.style.visibility = "hidden";
                 }
             }
         }

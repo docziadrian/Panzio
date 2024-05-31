@@ -43,7 +43,6 @@ let datumKorrigalas = () => {
     tavozasD = new Date(document.querySelector("#tavozas").value);
 
     napok_szama = Math.round((tavozasD - erkezesD) / (1000 * 60 * 60 * 24));
-    alert(napok_szama)
     
     
 
